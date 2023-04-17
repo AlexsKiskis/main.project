@@ -22,11 +22,12 @@ $sql = "INSERT INTO `students`(`fname`, `lname`, `gender`, `age`) VALUES ('$fnam
 
 //выполнение запроса
 $result = $connect->query($sql);
+usleep(3);
 if($result){
-    echo"<p>Данные о студенте внесены</p>";
+    echo"Ok";
 }
 else{
-    echo"<p>Ошибка внесения данных</p>";
+    echo"<p>Erorr</p>";
 }
 
 
