@@ -24,7 +24,6 @@ $sql = "INSERT INTO `students`(`fname`, `lname`, `gender`, `age`) VALUES ('$fnam
 $result = $connect->query($sql);
 if($result){
     echo"<p>Данные о студенте внесены</p>";
-    header("Location:index.php"); //редирект возвраст к форме
 }
 else{
     echo"<p>Ошибка внесения данных</p>";

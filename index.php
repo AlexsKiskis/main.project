@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="script.js"></script>
     <title>Клиент-серверное приложение</title>
 </head>
-<body>
+<body class="theme">
 
-<form action="insertStudent.php" method="POST">
+<form id="form-insert-student">
 <input type="text" name="fname" id="fname" placeholder="Введите имя" required><br>
 <input type="text" name="lname" id="lname" placeholder="Введите фамилию" required><br>
 <input type="number" name="age" id="age" placeholder="Ваш возраст" required><br>
