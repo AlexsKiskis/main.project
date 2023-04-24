@@ -78,3 +78,45 @@ for(btn of btnLike){
 for(btn of btnLike){
     btn.addEventListener("click", setLike("Успех", "Ошибка"));
 }
+
+
+//пример промисов
+function getrandomInt(max){ //генерация случайного числа
+    return Math.floor(Math.random()*max);
+}
+
+const myPromise = new Promise((resolve,reject)=>{
+    
+    console.log("obeshay");
+    let num;
+
+    setTimeout(()=>{
+        num = getrandomInt(10);
+        console.log(num);
+        if(num >4 ){
+            resolve(num);
+        }
+        else{
+            reject("Bad < 5")
+        }
+    }, 1000);
+
+}); 
+
+myPromise.then(
+    (result)=>{
+        console.log(result);
+        result++;
+        console.log(result);
+        return result;
+    }
+)
+.then((result)=> {console.log(result*2)})
+.catch(
+    (result)=>{
+        console.log(result)
+    }
+    ).finally(
+        ()=>{
+            console.log("end promisa")}
+    )
