@@ -14,8 +14,16 @@ xhr.onload = () =>{
     msg.innerHTML="Студент добавлен!";
     msg.classList.add("success");
     msg.classList.add("show-message");
-    let div = document.createElement("div");
     
+    //отправка данных через форму
+    
+    
+    
+    let div = document.createElement("div");
+   
+    
+
+
     let fname = formData.get("fname");
     let lname = formData.get("lname");   
     let gender = formData.get("gender");
@@ -35,3 +43,38 @@ xhr.onload = () =>{
     }
     }
 });
+
+//отправка данных без формы метод - get
+//лайки у студентов
+//http://callbackhell.ru/
+
+
+
+const btnLike = document.querySelectorAll(".like");
+for(btn of btnLike){
+    btn.addEventListener('click', setLike)
+    }
+
+    function setLike(str1,str2){
+    return function (event){
+        let idStudent = event.target.closest(".student").dataset.id
+        console.log(idStudent);
+
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", "api/setLike.php?id=" +idStudent);
+        xhr.onload = function(){
+            if(xhr.response=="Ok"){
+            let num = +event.target.closest(".student").querySelector(".num-like").textContent;
+            event.target.closest(".student").querySelector(".num-like").innerHTML = num +1;
+            console.log(str1);
+        }
+        else console,log(str2);
+      
+    }
+    xhr.send();
+}
+}
+
+for(btn of btnLike){
+    btn.addEventListener("click", setLike("Успех", "Ошибка"));
+}

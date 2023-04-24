@@ -7,7 +7,7 @@ $lname = $_POST['lname'];
 $age = $_POST['age'];
 $gender = $_POST['gender'];
 
-require_once ("config.php");
+require_once ("api/config.php");
 
 //соединение с БД
 $connect = new mysqli(HOST, USER, PASSWORD, DB);
@@ -27,7 +27,7 @@ if($result){
     echo"Ok";
 }
 else{
-    echo"<p>Erorr</p>";
+    echo"<p>Error</p>";
 }
 
 

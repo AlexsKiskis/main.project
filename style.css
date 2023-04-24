@@ -32,3 +32,14 @@
 .show-message{
     transform: translateY(0);
 }
+
+.like{
+    fill: green;
+}
+.like:hover{
+    fill: red;
+}
+
+.like--active{
+    fill: blue;
+}
