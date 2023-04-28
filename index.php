@@ -56,5 +56,11 @@ while ($row = $result->fetch_assoc()){
 <svg height="210" width="500">
    <line x1="0" y1="0" x2="500" y2="0" style="stroke:rgb(255,0,0);stroke-width:2" />
 </svg> 
+
+<form method="POST" action="api/auth.php" id="form-fetch">
+    <input type="text" id="login" name="login" placeholder="enter a login" required><br>
+    <input type="password" id="password" name="password" placeholder="enter a password" required><br>
+    <input type="submit" value="Log In">
+</form>
 </body>
 </html>
