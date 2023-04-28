@@ -1,4 +1,7 @@
 <?php
+session_start();
+?>
+<?php
 require_once ("config.php");
 //соединение с БД
 $connect = new mysqli(HOST, USER, PASSWORD, DB);
@@ -19,13 +22,14 @@ $result = $result->get_result();
 
 if($row = $result->fetch_assoc()){
     $response = [
-        "status" => true,
-        "name" => $row["name"],
+        "status"=>true,
+        "name"=> $row["name"],
         "login" => $row["login"]
-    ];
+];
+$_SESSION["user-name"] = $row["name"];
 }
 else{
-    $response = [
+    $response =[
         "status" => false
     ];
 }

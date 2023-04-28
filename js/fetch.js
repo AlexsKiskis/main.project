@@ -1,18 +1,21 @@
 const formAuth = document.getElementById('form-fetch');
 const output = document.querySelector('.profile');
 
-function auth(event){
+async function auth(event){
     event.preventDefault();//отменяем отправку формы
     let data = new FormData(formAuth);//собираем данные
 
-    fetch("api/auth.php",{
+    const response = await fetch("api/auth.php",{
         method: 'POST',
         'Content-Type':'application/json',
         body: data
-    }).then(
+    }).
+    then(
         (response)=>{
         return response.text();
-    }).then(
+    })
+
+    then(
         (text) => {
             cpnsole.log(text);
             if(text){
